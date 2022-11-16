@@ -32,7 +32,7 @@
       </div>
       <div class="is-pulled-right has-text-right px-2">
         <div class="is-flex">
-          <div>
+          <div style="min-width: 100px">
             <div class="nowrap">
               <CommonTokenMoney :value="volume" inline />
             </div>
@@ -75,13 +75,11 @@ const { $store } = useNuxtApp()
 const props = defineProps<{
   collection: RowSeries
   index: number
-  timeRange?: TimeRange
+  timeRange: TimeRange
 }>()
 
-const timeRange = computed(() => props.timeRange || 'Month')
-
 const volume = computed(() => {
-  switch (timeRange.value) {
+  switch (props.timeRange) {
     case 'All':
       return Number(props.collection.volume)
     case 'Month':
@@ -94,7 +92,7 @@ const volume = computed(() => {
 })
 
 const previousVolume = computed(() => {
-  switch (timeRange.value) {
+  switch (props.timeRange) {
     case 'All':
       return 0
     case 'Month':
@@ -122,7 +120,7 @@ const sign = computed(() => {
 })
 const diffPercentString = computed(() => {
   if (isNaN(diffPercent.value)) {
-    return ''
+    return '---'
   }
   return `${sign.value} ${Math.abs(Math.round(diffPercent.value))}%`
 })
@@ -142,4 +140,7 @@ const color = computed(() => {
 .nowrap {
   white-space: nowrap;
 }
+/* .mw-33 {
+  min-width: 33%;
+} */
 </style>
