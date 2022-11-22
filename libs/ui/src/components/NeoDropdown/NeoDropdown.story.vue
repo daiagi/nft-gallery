@@ -3,7 +3,7 @@
     <Variant title="small neo button">
       <NeoDropdown :label="label" size="small" />
     </Variant>
-    <!-- <Variant title="default neo button">
+    <Variant title="default neo button">
       <NeoDropdown :label="label" />
     </Variant>
     <Variant title="medium neo button">
@@ -11,7 +11,7 @@
     </Variant>
     <Variant title="large neo button">
       <NeoDropdown :label="label" size="large" />
-    </Variant> -->
+    </Variant>
   </Story>
 </template>
 
