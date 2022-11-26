@@ -65,6 +65,14 @@
     "landingTitle3": "And Sell",
     "landingSubtitle": "Kusama NFTS"
   },
+  "topCollections": {
+    "timeFrames": {
+      "7 Days": "7 Days",
+      "30 Days": "30 Days",
+      "90 Days": "90 Days",
+      "all": "All"
+    }
+  },
   "faq": {
     "page": "FAQ",
     "title": "Frequently Asked Questions",
@@ -549,7 +557,6 @@
       "sn_ASC": "Serial Number Ascending",
       "listed": "Buy now",
       "sortBy": "Sort By",
-
       "EMOTES_COUNT_DESC": "Most reacted",
       "BLOCK_NUMBER_DESC": "Recently Created",
       "BLOCK_NUMBER_ASC": "Oldest",
@@ -880,6 +887,7 @@
     "newestListDesc": "Discover the latest items on sale",
     "newestListHeading": "Newest List",
     "topCollectionsHeading": "Top Collections",
+    "floor": "floor",
     "popularCollectionsHeading": "Popular Collections",
     "popularCollectionsDesc": "Discover the most popular collections on rmrk",
     "featuredArticlesHeading": "Featured Articles",

@@ -19,7 +19,7 @@
           <div class="is-flex is-justify-content-space-between nowrap">
             <div>
               <div v-if="collection.floorPrice">
-                Floor:
+                {{ $t('general.floor') }}:
                 <CommonTokenMoney :value="collection.floorPrice" inline />
               </div>
               <div v-else>---</div>
