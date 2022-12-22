@@ -46,10 +46,31 @@
         <hr />
 
         <!-- <p>{{ nft }}</p> -->
-        <p>nftImage: {{ nftImage }}</p>
+        <!-- <p>nftImage: {{ nftImage }}</p>
         <p>nftAnimation: {{ nftAnimation }}</p>
-        <p>nftMimeType: {{ nftMimeType }}</p>
-        <NeoBuyButton @click="printClicked" />
+        <p>nftMimeType: {{ nftMimeType }}</p> -->
+        <div class="is-flex is-justify-content-end mb-3">
+          <NeoSlidingButton
+            primary-label="Buy"
+            secondary-label="Confirm"
+            :events="['buy', 'confirm']"
+            @click="printClicked">
+            <div class="px-6">
+              Buy Nft on <b class="is-uppercase">{{ urlPrefix }}</b>
+            </div>
+          </NeoSlidingButton>
+        </div>
+        <div class="is-flex is-justify-content-end">
+          <NeoSlidingButton
+            varient="secondary"
+            primary-label="Make Offer"
+            :secondary-label="['Confirm 1/2', 'Confirm 2/2']"
+            :events="['offer', 'confirm1', 'confirm2']"
+            @click="printClicked">
+            <div class="px-6">Lorem ipsum</div>
+          </NeoSlidingButton>
+        </div>
+
         <!-- <p>{{ nftMetadata }}</p> -->
       </div>
     </div>
@@ -75,7 +96,7 @@
 </template>
 
 <script setup lang="ts">
-import { IdentityItem, MediaItem, NeoBuyButton } from '@kodadot1/brick'
+import { IdentityItem, MediaItem, NeoSlidingButton } from '@kodadot1/brick'
 
 import { useGalleryItem } from './useGalleryItem'
 import GalleryItemShareBtn from './GalleryItemShareBtn.vue'
@@ -85,8 +106,8 @@ import GalleryItemTabsPanel from './GalleryItemTabsPanel/GalleryItemTabsPanel.vu
 
 const { urlPrefix } = usePrefix()
 const { nft, nftImage, nftAnimation, nftMimeType } = useGalleryItem()
-const printClicked = () => {
-  console.log('clicked')
+const printClicked = (event) => {
+  console.log('clicked', event)
 }
 
 const CarouselTypeRelated = defineAsyncComponent(

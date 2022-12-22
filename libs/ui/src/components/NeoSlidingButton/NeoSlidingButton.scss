@@ -2,15 +2,19 @@
   $animation-duration: 300ms;
   width: fit-content;
   position: relative;
-
-  .float-right {
-    transform: translateX(160px);
-    transition: all $animation-duration;
+  .min-width {
+    min-width: 115px;
   }
 
-  .float-left {
+  .is-right {
+    transform: translateX(calc(100% + 160px));
+    transition: transform $animation-duration;
+  }
+
+
+  .is-left {
     transform: translateX(0);
-    transition: all $animation-duration;
+    transition: transform $animation-duration;
   }
 
   &.container-transition {
@@ -23,18 +27,22 @@
 
   @keyframes container-transition {
     0% {
-      box-shadow: none;
-      border: 1px solid transparent;
-    }
+        box-shadow: none;
+        border: 1px solid;
+        border-left: none;
+        border-color: transparent;
+      }
 
     50% {
-      border: 1px solid hsla(0deg, 0%, 4%, 50%);
+      border-color:hsla(0deg, 0%, 4%, 50%);
+      border-left: none;
     }
 
     100% {
       box-shadow: 4px 4px hsl(0deg, 0%, 4%);
       border-color: hsl(0deg, 0%, 4%);
-      border-left-color: transparent;
+      border-left: none;
+
     }
   }
 
@@ -86,17 +94,20 @@
   @keyframes container-transition-dark {
     0% {
       box-shadow: none;
-      border: 1px solid transparent;
+      border: 1px solid;
+      border-left: none;
+      border-color: transparent;
     }
 
     50% {
-      border: 1px solid hsla(0deg, 0%, 100%, 50%);
+      border-color:hsla(0deg, 0%, 100%, 50%);
+      border-left: none;
     }
 
     100% {
       box-shadow: 4px 4px hsl(0deg, 0%, 100%);
       border-color: hsl(0deg, 0%, 100%);
-      border-left-color: transparent;
+      border-left: none;
     }
   }
   @keyframes button-transition-dark {
