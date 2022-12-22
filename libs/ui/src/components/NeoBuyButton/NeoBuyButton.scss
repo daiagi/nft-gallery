@@ -1,0 +1,110 @@
+.buy-btn-container {
+  $animation-duration: 300ms;
+  width: fit-content;
+  position: relative;
+
+  .float-right {
+    transform: translateX(160px);
+    transition: all $animation-duration;
+  }
+
+  .float-left {
+    transform: translateX(0);
+    transition: all $animation-duration;
+  }
+
+  &.container-transition {
+    box-shadow: none;
+    border: 1px solid transparent;
+    border-left-color: transparent;
+    animation: $animation-duration container-transition;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes container-transition {
+    0% {
+      box-shadow: none;
+      border: 1px solid transparent;
+    }
+
+    50% {
+      border: 1px solid hsla(0deg, 0%, 4%, 50%);
+    }
+
+    100% {
+      box-shadow: 4px 4px hsl(0deg, 0%, 4%);
+      border-color: hsl(0deg, 0%, 4%);
+      border-left-color: transparent;
+    }
+  }
+
+  .button-transition {
+    animation: $animation-duration button-transition;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes button-transition {
+    100% {
+      box-shadow: none;
+      border: none;
+      border-right: 1px solid hsl(0deg, 0%, 4%);
+      border-left: 1px solid hsl(0deg, 0%, 4%);
+    }
+  }
+
+  .text-transition {
+    animation: $animation-duration fadeInText;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes fadeInText {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+.dark-mode .buy-btn-container {
+  $animation-duration: 300ms;
+
+  &.container-transition {
+    animation: $animation-duration container-transition-dark;
+    animation-fill-mode: forwards;
+  }
+
+  .button-transition {
+    animation: $animation-duration button-transition-dark;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes container-transition-dark {
+    0% {
+      box-shadow: none;
+      border: 1px solid transparent;
+    }
+
+    50% {
+      border: 1px solid hsla(0deg, 0%, 100%, 50%);
+    }
+
+    100% {
+      box-shadow: 4px 4px hsl(0deg, 0%, 100%);
+      border-color: hsl(0deg, 0%, 100%);
+      border-left-color: transparent;
+    }
+  }
+  @keyframes button-transition-dark {
+    100% {
+      box-shadow: none;
+      border: none;
+      border-right: 1px solid hsl(0deg, 0%, 100%);
+      border-left: 1px solid hsl(0deg, 0%, 100%);
+    }
+  }
+}

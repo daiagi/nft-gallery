@@ -1,6 +1,6 @@
 <template>
   <o-button
-    :class="{ 'is-neo': true, active: active }"
+    :class="{ 'is-neo': true, active: active, [variant]: true }"
     :size="size"
     :icon-right="icon"
     icon-pack="fas">
@@ -11,12 +11,15 @@
 <script lang="ts" setup>
 import { OButton } from '@oruga-ui/oruga'
 
-defineProps<{
+const props = defineProps<{
   size?: string
   icon?: string
   label?: string
   active?: boolean
+  variant?: 'default' | 'primary' | 'secondary'
 }>()
+
+const variant = computed(() => props.variant || 'default')
 </script>
 
 <style lang="scss" scoped>
@@ -41,6 +44,22 @@ defineProps<{
     color: hsl(0deg, 0%, 100%);
     background-color: hsl(0deg, 0%, 4%);
   }
+
+  &.primary {
+    background: #ff7ac3;
+
+    &:hover {
+      background: white;
+    }
+  }
+
+  &.secondary {
+    background: #6188e7;
+
+    &:hover {
+      background: white;
+    }
+  }
 }
 
 .dark-mode .is-neo {
@@ -57,6 +76,26 @@ defineProps<{
   &.active {
     color: hsl(0deg, 0%, 4%);
     background-color: hsl(0deg, 0%, 100%);
+  }
+
+  &.primary {
+    background: #ff7ac3;
+    color: black;
+
+    &:hover {
+      background: hsl(330, 4%, 9%);
+      color: hsl(0deg, 0%, 100%);
+    }
+  }
+
+  &.secondary {
+    background: #6188e7;
+    color: black;
+
+    &:hover {
+      background: hsl(330, 4%, 9%);
+      color: hsl(0deg, 0%, 100%);
+    }
   }
 }
 </style>

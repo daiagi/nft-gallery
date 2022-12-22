@@ -49,6 +49,7 @@
         <p>nftImage: {{ nftImage }}</p>
         <p>nftAnimation: {{ nftAnimation }}</p>
         <p>nftMimeType: {{ nftMimeType }}</p>
+        <NeoBuyButton @click="printClicked" />
         <!-- <p>{{ nftMetadata }}</p> -->
       </div>
     </div>
@@ -74,7 +75,7 @@
 </template>
 
 <script setup lang="ts">
-import { IdentityItem, MediaItem } from '@kodadot1/brick'
+import { IdentityItem, MediaItem, NeoBuyButton } from '@kodadot1/brick'
 
 import { useGalleryItem } from './useGalleryItem'
 import GalleryItemShareBtn from './GalleryItemShareBtn.vue'
@@ -84,6 +85,9 @@ import GalleryItemTabsPanel from './GalleryItemTabsPanel/GalleryItemTabsPanel.vu
 
 const { urlPrefix } = usePrefix()
 const { nft, nftImage, nftAnimation, nftMimeType } = useGalleryItem()
+const printClicked = () => {
+  console.log('clicked')
+}
 
 const CarouselTypeRelated = defineAsyncComponent(
   () => import('@/components/carousel/CarouselTypeRelated.vue')
